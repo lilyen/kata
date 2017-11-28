@@ -23,37 +23,6 @@ namespace kata
                     return false;
                 }
             }
-            //while (index < input.Length)
-            //{
-            //    if (IsLeftBrace(characterSet[index]))
-            //    {
-            //        leftBracesStack.Push(characterSet[index]);
-            //    }
-            //    else if (!leftBracesStack.Any() || !IsPair(characterSet[index], leftBracesStack.Pop()))
-            //    {
-            //        return false;
-            //    }
-            //    index++;
-            //    //switch (characterSet[index])
-            //    //{
-            //    //    case ')':
-            //    //        if (leftBraceses.Count == 0 || !leftBraceses.Pop().Equals('('))
-            //    //            return false;
-            //    //        break;
-            //    //    case ']':
-            //    //        if (leftBraceses.Count == 0 || !leftBraceses.Pop().Equals('['))
-            //    //            return false;
-            //    //        break;
-            //    //    case '}':
-            //    //        if (leftBraceses.Count == 0 || !leftBraceses.Pop().Equals('{'))
-            //    //            return false;
-            //    //        break;
-            //    //    default:
-            //    //        leftBraceses.Push(characterSet[index]);
-            //    //        break;
-            //    //}
-            //    //index++;
-            //}
 
             return (leftBracesStack.Count == 0);
         }
