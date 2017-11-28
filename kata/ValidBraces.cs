@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace kata
 {
@@ -8,39 +10,81 @@ namespace kata
         {
             char[] characterSet = input.ToCharArray();
             int index = 0;
-            Stack leftBracese = new Stack();
+            var leftBracesStack = new Stack<char>();
 
-            while (index < input.Length)
+            foreach (var braces in input.ToCharArray())
             {
-                switch (characterSet[index])
+                if (IsLeftBrace(braces))
                 {
-                    case ')':
-                        if (!leftBracese.Pop().Equals('('))
-                            return false;
-                        break;
-                    case ']':
-                        if (!leftBracese.Pop().Equals('['))
-                            return false;
-                        break;
-                    case '}':
-                        if (!leftBracese.Pop().Equals('{'))
-                            return false;
-                        break;
-                    default:
-                        leftBracese.Push(characterSet[index]);
-                        break;
+                    leftBracesStack.Push(braces);
                 }
-                index++;
+                else if (!leftBracesStack.Any() || !IsPair(braces, leftBracesStack.Pop()))
+                {
+                    return false;
+                }
             }
+            //while (index < input.Length)
+            //{
+            //    if (IsLeftBrace(characterSet[index]))
+            //    {
+            //        leftBracesStack.Push(characterSet[index]);
+            //    }
+            //    else if (!leftBracesStack.Any() || !IsPair(characterSet[index], leftBracesStack.Pop()))
+            //    {
+            //        return false;
+            //    }
+            //    index++;
+            //    //switch (characterSet[index])
+            //    //{
+            //    //    case ')':
+            //    //        if (leftBraceses.Count == 0 || !leftBraceses.Pop().Equals('('))
+            //    //            return false;
+            //    //        break;
+            //    //    case ']':
+            //    //        if (leftBraceses.Count == 0 || !leftBraceses.Pop().Equals('['))
+            //    //            return false;
+            //    //        break;
+            //    //    case '}':
+            //    //        if (leftBraceses.Count == 0 || !leftBraceses.Pop().Equals('{'))
+            //    //            return false;
+            //    //        break;
+            //    //    default:
+            //    //        leftBraceses.Push(characterSet[index]);
+            //    //        break;
+            //    //}
+            //    //index++;
+            //}
 
-            if (leftBracese.Count == 0)
+            return (leftBracesStack.Count == 0);
+        }
+
+        public bool IsLeftBrace(char character)
+        {
+            switch (character)
             {
-                return true;
+                case '(':
+                case '[':
+                case '{':
+                    return true;
+                default:
+                    return false;
             }
-            else
+        }
+
+        public bool IsPair(char rightBrance, char leftBraces)
+        {
+            switch (rightBrance)
             {
-                return false;
+                case ')':
+                    return (leftBraces.Equals('('));
+                case ']':
+                    return (leftBraces.Equals('['));
+                case '}':
+                    return (leftBraces.Equals('{'));
+                default:
+                    return false;
             }
         }
     }
+    
 }

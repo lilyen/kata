@@ -6,51 +6,50 @@ namespace KataTest
     [TestClass]
     public class ValidBracesTest
     {
-        private ValidBraces target = new ValidBraces();
+        private ValidBraces _target = new ValidBraces();
         [TestMethod]
-        public void singleBraces()
+        public void SingleBraces()
         {
-            Assert.AreEqual(true, target.IsValidBraces(""));
-            Assert.AreEqual(false, target.IsValidBraces("(}"));
-            Assert.AreEqual(true, target.IsValidBraces("()"));
+            Assert.AreEqual(false, _target.IsValidBraces("(}"));
+            Assert.AreEqual(true, _target.IsValidBraces("()"));
         }
 
         [TestMethod]
         public void DoubleBraces()
         {
-            Assert.AreEqual(true, target.IsValidBraces("()[]{}"));
+            Assert.AreEqual(true, _target.IsValidBraces("()[]{}"));
         }
 
         [TestMethod]
         public void DoubleBraces_2()
         {
-            Assert.AreEqual(true, target.IsValidBraces("([{}])"));
+            Assert.AreEqual(true, _target.IsValidBraces("([{}])"));
         }
 
         [TestMethod]
         public void DoubleBraces_3()
         {
-            Assert.AreEqual(false, target.IsValidBraces("([{]})"));
+            Assert.AreEqual(false, _target.IsValidBraces("([{]})"));
         }
 
         [TestMethod]
-        public void rightBraces()
+        public void RightBraces()
         {
-            Assert.AreEqual(false, target.IsValidBraces(")("));
+            Assert.AreEqual(false, _target.IsValidBraces(")("));
         }
 
         [TestMethod]
-        public void rightBraces_2()
+        public void OnlyLeftBraces()
         {
-            Assert.AreEqual(false, target.IsValidBraces("(["));
+            Assert.AreEqual(false, _target.IsValidBraces("(["));
         }
 
         [TestMethod]
-        public void otherTest()
+        public void OtherTest()
         {
-            Assert.AreEqual(false, target.IsValidBraces("[(])"));
-            Assert.AreEqual(false, target.IsValidBraces("[({})](]"));
-            Assert.AreEqual(false, target.IsValidBraces("][({})](]"));
+            Assert.AreEqual(false, _target.IsValidBraces("[(])"));
+            Assert.AreEqual(false, _target.IsValidBraces("[({})](]"));
+            Assert.AreEqual(false, _target.IsValidBraces("][({})](]"));
         }
     }
 }
