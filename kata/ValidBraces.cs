@@ -12,23 +12,13 @@ namespace kata
 
             foreach (var braces in input.ToCharArray())
             {
-                switch (braces)
+                if (IsLeftBrace(braces))
                 {
-                    case ')':
-                        if (leftBracesStack.Count == 0 || !leftBracesStack.Pop().Equals('('))
-                            return false;
-                        break;
-                    case ']':
-                        if (leftBracesStack.Count == 0 || !leftBracesStack.Pop().Equals('['))
-                            return false;
-                        break;
-                    case '}':
-                        if (leftBracesStack.Count == 0 || !leftBracesStack.Pop().Equals('{'))
-                            return false;
-                        break;
-                    default:
-                        leftBracesStack.Push(braces);
-                        break;
+                    leftBracesStack.Push(braces);
+                }
+                else if (!leftBracesStack.Any() || !IsPair(braces, leftBracesStack.Pop()))
+                {
+                    return false;
                 }
             }
 
