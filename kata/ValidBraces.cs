@@ -8,24 +8,24 @@ namespace kata
     {
         public bool IsValidBraces(string input)
         {
-            var leftBracesStack = new Stack<char>();
+            var openBraceStack = new Stack<char>();
 
-            foreach (var braces in input.ToCharArray())
+            foreach (var brace in input)
             {
-                if (IsLeftBrace(braces))
+                if (IsAnOpen(brace))
                 {
-                    leftBracesStack.Push(braces);
+                    openBraceStack.Push(brace);
                 }
-                else if (!leftBracesStack.Any() || !IsPair(braces, leftBracesStack.Pop()))
+                else if (openBraceStack.Count == 0 || !IsPair(brace, openBraceStack.Pop()))
                 {
                     return false;
                 }
             }
 
-            return (leftBracesStack.Count == 0);
+            return (openBraceStack.Count == 0);
         }
 
-        public bool IsLeftBrace(char character)
+        public bool IsAnOpen(char character)
         {
             switch (character)
             {
