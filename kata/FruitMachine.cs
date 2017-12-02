@@ -8,16 +8,7 @@ namespace kata
 {
     public class FruitMachine
     {
-        Dictionary<string, int> ThreeItemMatchScore = new Dictionary<string, int>()
-        {
-            {"Wild", 100}, {"Star", 90},
-            {"Bell", 80}, {"Shell", 70},
-            {"Seven", 60}, {"Cherry", 50},
-            {"Bar", 40}, {"King", 30},
-            {"Queen", 20}, {"Jack", 10}
-        };
-
-        Dictionary<string, int> TwoItemMatchScore = new Dictionary<string, int>()
+        Dictionary<string, int> itemBasicScore = new Dictionary<string, int>()
         {
             {"Wild", 10}, {"Star", 9},
             {"Bell", 8}, {"Shell", 7},
@@ -26,13 +17,11 @@ namespace kata
             {"Queen", 2}, {"Jack", 1}
         };
 
-        Dictionary<string, int> TwoItemMatchOneWildScore = new Dictionary<string, int>()
+        private Dictionary<string, int> scoreBonus = new Dictionary<string, int>()
         {
-            {"Wild", 10}, {"Star", 18},
-            {"Bell", 16}, {"Shell", 14},
-            {"Seven", 12}, {"Cherry", 10},
-            {"Bar", 8}, {"King", 6},
-            {"Queen", 4}, {"Jack", 2}
+            {"ThreeItemSame", 10},
+            {"TWoItemSame", 1},
+            {"TWoItemSameOneWild", 2}
         };
 
         public int Fruit(List<string[]> reels, int[] spins)
@@ -43,17 +32,17 @@ namespace kata
             {
                 if (spinItemNum.Value == 3)
                 {
-                    return ThreeItemMatchScore[spinItemNum.Key];
+                    return itemBasicScore[spinItemNum.Key] * scoreBonus["ThreeItemSame"];
                 }
                 else if(spinItemNum.Value == 2)
                 {
-                    if (spinItemsNum.ContainsKey("Wild"))
+                    if (spinItemsNum.ContainsKey("Wild") && (spinItemsNum["Wild"] != 2))
                     {
-                        return TwoItemMatchOneWildScore[spinItemNum.Key];
+                        return itemBasicScore[spinItemNum.Key] * scoreBonus["TWoItemSameOneWild"];
                     }
                     else
                     {
-                        return TwoItemMatchScore[spinItemNum.Key];
+                        return itemBasicScore[spinItemNum.Key] * scoreBonus["TWoItemSame"];
                     }
                 }
             }
