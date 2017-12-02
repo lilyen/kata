@@ -80,5 +80,15 @@ namespace KataTest
 
             Assert.AreEqual(10, result);
         }
+
+        [Test]
+        public void TwoBellSame_NoNeighbor()
+        {
+            SetReals();
+
+            var result = _class.Fruit(reels, new int[] { 2, 1, 2});
+
+            Assert.AreEqual(8, result);
+        }
     }
 }
