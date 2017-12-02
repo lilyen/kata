@@ -62,13 +62,23 @@ namespace KataTest
         }
 
         [Test]
-        public void TwoItemSame_NoNeighbor()
+        public void TwoItemSame_2()
         {
             SetReals();
 
             int[] spins = { 1, 0, 0 };
 
             Assert.AreEqual(10, _class.Fruit(reels, spins));
+        }
+
+        [Test]
+        public void TwoItemSame_NoNeighbor()
+        {
+            SetReals();
+
+            var result = _class.Fruit(reels, new int[] {0, 1, 0});
+
+            Assert.AreEqual(10, result);
         }
     }
 }
