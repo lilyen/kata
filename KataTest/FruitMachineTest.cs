@@ -13,12 +13,19 @@ namespace KataTest
     public class FruitMachineTest
     {
         FruitMachine _class = new FruitMachine();
+        private string[] reel;
+        private List<string[]> reels;
+
+        private void SetReals()
+        {
+            reel = new string[]{ "Wild", "Star", "Bell", "Shell", "Seven", "Cherry", "Bar", "King", "Queen", "Jack" };
+            reels = new List<string[]> { reel, reel, reel };
+        }
 
         [Test]
         public void NoItemSame()
         {
-            string[] reel = { "Wild", "Star", "Bell", "Shell", "Seven", "Cherry", "Bar", "King", "Queen", "Jack" };
-            List<string[]> reels = new List<string[]> { reel, reel, reel };
+            SetReals();
 
             int[] spins = { 0, 1, 2};
 
@@ -28,8 +35,7 @@ namespace KataTest
         [Test]
         public void ThreeItemSame()
         {
-            string[] reel = { "Wild", "Star", "Bell", "Shell", "Seven", "Cherry", "Bar", "King", "Queen", "Jack" };
-            List<string[]> reels = new List<string[]> { reel, reel, reel };
+            SetReals();
 
             int[] spins = { 0, 0, 0 };
 
@@ -39,8 +45,7 @@ namespace KataTest
         [Test]
         public void ThreeItemSame_2()
         {
-            string[] reel = { "Wild", "Star", "Bell", "Shell", "Seven", "Cherry", "Bar", "King", "Queen", "Jack" };
-            List<string[]> reels = new List<string[]> { reel, reel, reel };
+            SetReals();
 
             int[] spins = { 1, 1, 1};
 
