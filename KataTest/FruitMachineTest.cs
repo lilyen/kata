@@ -62,7 +62,7 @@ namespace KataTest
         }
 
         [Test]
-        public void TwoItemSame_NoNeighbor2()
+        public void TwoItemSame_NoNeighbor()
         {
             SetReals();
 
