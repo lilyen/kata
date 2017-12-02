@@ -32,24 +32,15 @@ namespace KataTest
             Assert.AreEqual(0, _class.Fruit(reels, spins));
         }
 
-        [Test]
-        public void ThreeItemSame()
+        [TestCase(100, 0, TestName = "Wild")]
+        [TestCase(90, 1, TestName = "Star")]
+        public void ThreeItemSame(int expected, int reelsIndex)
         {
             SetReals();
 
-            int[] spins = { 0, 0, 0 };
+            int[] spins = { reelsIndex, reelsIndex, reelsIndex };
 
-            Assert.AreEqual(100, _class.Fruit(reels, spins));
-        }
-
-        [Test]
-        public void ThreeItemSame_2()
-        {
-            SetReals();
-
-            int[] spins = { 1, 1, 1};
-
-            Assert.AreEqual(90, _class.Fruit(reels, spins));
+            Assert.AreEqual(expected, _class.Fruit(reels, spins));
         }
     }
 }
