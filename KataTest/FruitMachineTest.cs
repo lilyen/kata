@@ -34,6 +34,14 @@ namespace KataTest
 
         [TestCase(100, 0, TestName = "Wild")]
         [TestCase(90, 1, TestName = "Star")]
+        [TestCase(80, 2, TestName = "Bell")]
+        [TestCase(70, 3, TestName = "Shell")]
+        [TestCase(60, 4, TestName = "Seven")]
+        [TestCase(50, 5, TestName = "Cherry")]
+        [TestCase(40, 6, TestName = "Bar")]
+        [TestCase(30, 7, TestName = "King")]
+        [TestCase(20, 8, TestName = "Queen")]
+        [TestCase(10, 9, TestName = "Jack")]
         public void ThreeItemSame(int expected, int reelsIndex)
         {
             SetReals();
