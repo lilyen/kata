@@ -50,5 +50,25 @@ namespace KataTest
 
             Assert.AreEqual(expected, _class.Fruit(reels, spins));
         }
+
+        [Test]
+        public void TwoItemSame()
+        {
+            SetReals();
+
+            int[] spins = { 0, 0, 1};
+
+            Assert.AreEqual(10, _class.Fruit(reels, spins));
+        }
+
+        [Test]
+        public void TwoItemSame_NoNeighbor2()
+        {
+            SetReals();
+
+            int[] spins = { 1, 0, 0 };
+
+            Assert.AreEqual(10, _class.Fruit(reels, spins));
+        }
     }
 }

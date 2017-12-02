@@ -16,12 +16,46 @@ namespace kata
             {"Bar", 40}, {"King", 30},
             {"Queen", 20}, {"Jack", 10}
         };
+
+        Dictionary<string, int> TwoItemMatchScore = new Dictionary<string, int>()
+        {
+            {"Wild", 10}, {"Star", 9},
+            {"Bell", 8}, {"Shell", 7},
+            {"Seven", 6}, {"Cherry", 5},
+            {"Bar", 4}, {"King", 3},
+            {"Queen", 2}, {"Jack", 1}
+        };
+
         public int Fruit(List<string[]> reels, int[] spins)
         {
-            if (reels[0][spins[0]] == reels[1][spins[1]] && reels[0][spins[0]] == reels[2][spins[2]])
+            Dictionary<string, int> spinItemsNum = new Dictionary<string, int>();
+
+            string tempSpinItem;
+            for (int i = 0; i < 3; i++)
             {
-                return ThreeItemMatchScore[reels[0][spins[0]]];
+                tempSpinItem = reels[i][spins[i]];
+                if (spinItemsNum.ContainsKey(tempSpinItem))
+                {
+                    spinItemsNum[tempSpinItem] = spinItemsNum[tempSpinItem] + 1;
+                }
+                else
+                {
+                    spinItemsNum.Add(tempSpinItem, 1);
+                }
             }
+
+            foreach (KeyValuePair<string, int> spinItemNum in spinItemsNum)
+            {
+                if (spinItemNum.Value == 3)
+                {
+                    return ThreeItemMatchScore[spinItemNum.Key];
+                }
+                else if(spinItemNum.Value == 2)
+                {
+                    return TwoItemMatchScore[spinItemNum.Key];
+                }
+            }
+
             return 0;
         }
     }
