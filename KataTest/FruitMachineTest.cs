@@ -32,16 +32,16 @@ namespace KataTest
             Assert.AreEqual(0, _class.Fruit(reels, spins));
         }
 
-        [TestCase(100, 0, TestName = "Wild")]
-        [TestCase(90, 1, TestName = "Star")]
-        [TestCase(80, 2, TestName = "Bell")]
-        [TestCase(70, 3, TestName = "Shell")]
-        [TestCase(60, 4, TestName = "Seven")]
-        [TestCase(50, 5, TestName = "Cherry")]
-        [TestCase(40, 6, TestName = "Bar")]
-        [TestCase(30, 7, TestName = "King")]
-        [TestCase(20, 8, TestName = "Queen")]
-        [TestCase(10, 9, TestName = "Jack")]
+        [TestCase(100, 0, TestName = "three Wild same")]
+        [TestCase(90, 1, TestName = "three Star same")]
+        [TestCase(80, 2, TestName = "three Bell same")]
+        [TestCase(70, 3, TestName = "three Shell same")]
+        [TestCase(60, 4, TestName = "three Seven same")]
+        [TestCase(50, 5, TestName = "three Cherry same")]
+        [TestCase(40, 6, TestName = "three Bar same")]
+        [TestCase(30, 7, TestName = "three King same")]
+        [TestCase(20, 8, TestName = "three Queen same")]
+        [TestCase(10, 9, TestName = "three Jack same")]
         public void ThreeItemSame(int expected, int reelsIndex)
         {
             SetReals();
