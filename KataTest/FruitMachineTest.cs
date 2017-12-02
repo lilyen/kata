@@ -35,5 +35,16 @@ namespace KataTest
 
             Assert.AreEqual(100, _class.Fruit(reels, spins));
         }
+
+        [Test]
+        public void ThreeItemSame_2()
+        {
+            string[] reel = { "Wild", "Star", "Bell", "Shell", "Seven", "Cherry", "Bar", "King", "Queen", "Jack" };
+            List<string[]> reels = new List<string[]> { reel, reel, reel };
+
+            int[] spins = { 1, 1, 1};
+
+            Assert.AreEqual(90, _class.Fruit(reels, spins));
+        }
     }
 }

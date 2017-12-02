@@ -12,6 +12,10 @@ namespace kata
         {
             if (reels[0][spins[0]] == reels[1][spins[1]] && reels[0][spins[0]] == reels[2][spins[2]])
             {
+                if (reels[0][spins[0]] == "Star")
+                {
+                    return 90;
+                }
                 return 100;
             }
             return 0;
