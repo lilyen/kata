@@ -52,7 +52,7 @@ namespace KataTest
         }
 
         [Test]
-        public void TwoItemSame()
+        public void TwoWildSame()
         {
             SetReals();
 
@@ -62,7 +62,7 @@ namespace KataTest
         }
 
         [Test]
-        public void TwoItemSame_2()
+        public void TwoWildSame_2()
         {
             SetReals();
 
@@ -72,7 +72,7 @@ namespace KataTest
         }
 
         [Test]
-        public void TwoItemSame_NoNeighbor()
+        public void TwoWildSame_NoNeighbor()
         {
             SetReals();
 
