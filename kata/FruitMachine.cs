@@ -28,21 +28,7 @@ namespace kata
 
         public int Fruit(List<string[]> reels, int[] spins)
         {
-            Dictionary<string, int> spinItemsNum = new Dictionary<string, int>();
-
-            string tempSpinItem;
-            for (int i = 0; i < 3; i++)
-            {
-                tempSpinItem = reels[i][spins[i]];
-                if (spinItemsNum.ContainsKey(tempSpinItem))
-                {
-                    spinItemsNum[tempSpinItem] = spinItemsNum[tempSpinItem] + 1;
-                }
-                else
-                {
-                    spinItemsNum.Add(tempSpinItem, 1);
-                }
-            }
+            Dictionary<string, int> spinItemsNum = CountSpinsItem(reels, spins);
 
             foreach (KeyValuePair<string, int> spinItemNum in spinItemsNum)
             {
@@ -57,6 +43,27 @@ namespace kata
             }
 
             return 0;
+        }
+
+        public Dictionary<string, int> CountSpinsItem(List<string[]> reels, int[] spins)
+        {
+            Dictionary<string, int> result = new Dictionary<string, int>();
+
+            string tempSpinItem;
+            for (int i = 0; i < spins.Length; i++)
+            {
+                tempSpinItem = reels[i][spins[i]];
+                if (result.ContainsKey(tempSpinItem))
+                {
+                    result[tempSpinItem] = result[tempSpinItem] + 1;
+                }
+                else
+                {
+                    result.Add(tempSpinItem, 1);
+                }
+            }
+
+            return result;
         }
     }
 }
