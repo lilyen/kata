@@ -90,5 +90,15 @@ namespace KataTest
 
             Assert.AreEqual(8, result);
         }
+
+        [Test]
+        public void TwoStar_OneWild()
+        {
+            SetReals();
+
+            var result = _class.Fruit(reels, new int[] { 0, 1, 1 });
+
+            Assert.AreEqual(18, result);
+        }
     }
 }

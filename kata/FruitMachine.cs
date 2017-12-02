@@ -26,6 +26,15 @@ namespace kata
             {"Queen", 2}, {"Jack", 1}
         };
 
+        Dictionary<string, int> TwoItemMatchOneWildScore = new Dictionary<string, int>()
+        {
+            {"Wild", 10}, {"Star", 18},
+            {"Bell", 16}, {"Shell", 14},
+            {"Seven", 12}, {"Cherry", 10},
+            {"Bar", 8}, {"King", 6},
+            {"Queen", 4}, {"Jack", 2}
+        };
+
         public int Fruit(List<string[]> reels, int[] spins)
         {
             Dictionary<string, int> spinItemsNum = CountSpinsItem(reels, spins);
@@ -38,7 +47,14 @@ namespace kata
                 }
                 else if(spinItemNum.Value == 2)
                 {
-                    return TwoItemMatchScore[spinItemNum.Key];
+                    if (spinItemsNum.ContainsKey("Wild"))
+                    {
+                        return TwoItemMatchOneWildScore[spinItemNum.Key];
+                    }
+                    else
+                    {
+                        return TwoItemMatchScore[spinItemNum.Key];
+                    }
                 }
             }
 
