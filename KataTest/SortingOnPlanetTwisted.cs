@@ -21,6 +21,13 @@ namespace KataTest
         }
 
         [Test]
+        public void sortWithTwist37()
+        {
+            Assert.AreEqual(string.Join(",", new[] { 1, 2, 7, 4, 5, 6, 3, 8, 9 }), string.Join(",", target.SortTwisted37(new[] { 1, 2, 7, 4, 5, 6, 3, 8, 9 })));
+            Assert.AreEqual(string.Join(",", new[] { 1, 2, 7, 4, 5, 6, 3, 8, 9 }), string.Join(",", target.SortTwisted37(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 })));
+        }
+
+        [Test]
         public void KataTests()
         {
             Assert.AreEqual(string.Join(",", new[] { 1, 2, 7, 4, 5, 6, 3, 8, 9 }), string.Join(",", target.SortTwisted37(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 })));
