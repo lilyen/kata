@@ -54,6 +54,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="FruitMachineTest.cs" />
+    <Compile Include="SortingOnPlanetTwisted.cs" />
     <Compile Include="ValidBracesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

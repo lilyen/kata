@@ -44,6 +44,7 @@
     <Compile Include="FruitMachine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SortingOnPlanetTwisted.cs" />
     <Compile Include="ValidBraces.cs" />
   </ItemGroup>
   <ItemGroup>
