@@ -89,12 +89,5 @@ namespace kata
 
             return result;
         }
-
-        private void Swap(int[] array, int indexOf3, int indexOf7)
-        {
-            var tempValue = array[indexOf3];
-            array[indexOf3] = array[indexOf7];
-            array[indexOf7] = tempValue;
-        }
     }
 }
