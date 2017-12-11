@@ -28,6 +28,14 @@ namespace KataTest
         }
 
         [Test]
+        public void sortWithOnly3Or7()
+        {
+            Assert.AreEqual(string.Join(",", new[] { 1, 7, 4}), string.Join(",", target.SortTwisted37(new[] { 1, 4, 7})));
+            Assert.AreEqual(string.Join(",", new[] { 1, 5, 3}), string.Join(",", target.SortTwisted37(new[] { 1, 3, 5})));
+            //Assert.AreEqual(string.Join(",", new[] { 1, 2, 7, 4, 5, 6, 3, 8, 9 }), string.Join(",", target.SortTwisted37(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 })));
+        }
+
+        [Test]
         public void KataTests()
         {
             Assert.AreEqual(string.Join(",", new[] { 1, 2, 7, 4, 5, 6, 3, 8, 9 }), string.Join(",", target.SortTwisted37(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 })));
