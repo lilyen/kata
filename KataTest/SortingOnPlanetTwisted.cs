@@ -37,6 +37,15 @@ namespace KataTest
         }
 
         [Test]
+        public void sortTwistIsTensDigit()
+        {
+            Assert.AreEqual(string.Join(",", new[] { 11, 17, 14 }), string.Join(",", target.SortTwisted37(new[] { 11, 14, 17 })));
+            Assert.AreEqual(string.Join(",", new[] { 17, 14, 18 }), string.Join(",", target.SortTwisted37(new[] { 14, 17, 18 })));
+            Assert.AreEqual(string.Join(",", new[] { 11, 15, 13 }), string.Join(",", target.SortTwisted37(new[] { 11, 13, 15 })));
+            Assert.AreEqual(string.Join(",", new[] { 21, 25, 23, 28 }), string.Join(",", target.SortTwisted37(new[] { 21, 25, 23, 28 })));
+        }
+
+        [Test]
         public void KataTests()
         {
             Assert.AreEqual(string.Join(",", new[] { 1, 2, 7, 4, 5, 6, 3, 8, 9 }), string.Join(",", target.SortTwisted37(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 })));

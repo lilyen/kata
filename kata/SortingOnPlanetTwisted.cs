@@ -26,17 +26,19 @@ namespace kata
 
         private bool HasTwisted(int value)
         {
-            return value == 3 || value == 7;
+            var unitsDigit = value % 10;
+            return unitsDigit == 3 || unitsDigit == 7;
         }
 
-        public int GetTwistNum(int num)
+        public int GetTwistNum(int value)
         {
-            if (num == 3)
+            var unitsDigit = value % 10;
+            if (unitsDigit == 3)
             {
-                return 7;
-            } else if (num == 7)
+                return (value / 10) * 10 + 7;
+            } else if (unitsDigit == 7)
             {
-                return 3;
+                return (value / 10) * 10 + 3;
             }
 
             return -1;
