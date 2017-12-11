@@ -12,24 +12,21 @@ namespace kata
         public int[] SortTwisted37(int[] array)
         {
             Array.Sort(array);
-            var indexOf3 = Array.IndexOf(array, 3);
-            var indexOf7 = Array.IndexOf(array, 7);
-            if (indexOf3 > 0 && indexOf7 > 0)
+            for (var i = 0; i < array.Length; i++)
             {
-                Swap(array, indexOf3, indexOf7);
-            }
-            else if (indexOf7 > 0)
-            {
-                var firstBiggerIndex = FindfirstBiggerIndex(array, GetTwistNum(7));
-                MoveTo(array, indexOf7, firstBiggerIndex);
-            }
-            else if (indexOf3 > 0)
-            {
-                var firstBiggerIndex = FindfirstBiggerIndex(array, GetTwistNum(3));
-                MoveTo(array, indexOf3, firstBiggerIndex);
+                if (HasTwisted(array[i]))
+                {
+                    var firstBiggerIndex = FindfirstBiggerIndex(array, GetTwistNum(array[i]));
+                    MoveTo(array, i, firstBiggerIndex);
+                }
             }
 
             return array;
+        }
+
+        private bool HasTwisted(int value)
+        {
+            return value == 3 || value == 7;
         }
 
         public int GetTwistNum(int num)
@@ -45,11 +42,17 @@ namespace kata
             return -1;
         }
 
+        //TODO: 需要修
         private void MoveTo(int[] array, int oringalIndex, int newIndex)
         {
             var targetValue = array[oringalIndex];
-            array[oringalIndex] = Int32.MaxValue;
-            Array.Sort(array);
+            //array[oringalIndex] = Int32.MaxValue;
+            
+            //把目標移出array
+            for (var i = oringalIndex; i < array.Length-1; i++)
+            {
+                array[i] = array[i + 1];
+            }
 
             if (newIndex == -1)
             {
@@ -58,6 +61,8 @@ namespace kata
             }
             else
             {
+                if (oringalIndex < newIndex) newIndex -= 1;
+
                 for (var i = array.Length - 1; i > newIndex; i--)
                 {
                     array[i] = array[i - 1];
@@ -74,7 +79,7 @@ namespace kata
             for (var i = 0; i < array.Length; i++)
             {
                 var arrValue = array[i];
-                if (arrValue > targetValue) //TODO: arrValue >= (targetValue+1)
+                if (arrValue > targetValue)
                 {
                     return i;
                 }
