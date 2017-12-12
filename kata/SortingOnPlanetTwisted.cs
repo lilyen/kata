@@ -32,16 +32,26 @@ namespace kata
 
         public int GetTwistNum(int value)
         {
-            var unitsDigit = value % 10;
-            if (unitsDigit == 3)
+            var strValue = Convert.ToString(value);
+            char[] hasTwistNum = {'3', '7'};
+            for (int index = 0; index < strValue.Length; index ++)
             {
-                return (value / 10) * 10 + 7;
-            } else if (unitsDigit == 7)
-            {
-                return (value / 10) * 10 + 3;
+                index = strValue.IndexOfAny(hasTwistNum, index);
+
+                if (index == -1) break;
+
+                if (strValue[index] == '3')
+                {
+                    strValue = strValue.Remove(index, 1).Insert(index, "7");
+                }
+                else if (strValue[index] == '7')
+                {
+                    strValue = strValue.Remove(index, 1).Insert(index, "3");
+                }
+                
             }
 
-            return -1;
+            return Convert.ToInt32(strValue);
         }
 
         //TODO: 需要修
