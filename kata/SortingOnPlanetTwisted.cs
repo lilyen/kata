@@ -26,8 +26,9 @@ namespace kata
 
         private bool HasTwisted(int value)
         {
-            var unitsDigit = value % 10;
-            return unitsDigit == 3 || unitsDigit == 7;
+            var strValue = Convert.ToString(value);
+            char[] hasTwistNum = { '3', '7' };
+            return strValue.IndexOfAny(hasTwistNum) >= 0;
         }
 
         public int GetTwistNum(int value)
