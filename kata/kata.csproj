@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BetValidator.cs" />
     <Compile Include="FruitMachine.cs" />
     <Compile Include="MorseCodeDecode.cs" />
     <Compile Include="Program.cs" />
