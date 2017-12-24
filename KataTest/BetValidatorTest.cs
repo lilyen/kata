@@ -27,5 +27,11 @@ namespace KataTest
             Assert.AreEqual(new int[] { 1, 2, 3, 4, 5 }, target.ValidateBet(5, 90, "1 2/3,4 5"));
             Assert.AreEqual(new int[] { 1, 2, 3, 4, 5 }, target.ValidateBet(5, 90, "1 2/ 3 ,4 5"));
         }
+
+        [Test]
+        public void NumberNoValidator()
+        {
+            Assert.AreEqual(null, target.ValidateBet(5, 90, "1 2 3 4"));
+        }
     }
 }

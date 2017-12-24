@@ -13,6 +13,10 @@ namespace kata
         {
             var pattern = @"[, \s /]+";
             var separateResult = Regex.Split(text, pattern);
+            if (separateResult.Length != N)
+            {
+                return null;
+            }
             var result = new List<int>();
 
             foreach (var str in separateResult)
