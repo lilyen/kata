@@ -24,6 +24,14 @@ namespace kata
                 result.Add(Int32.Parse(str));
             }
 
+            foreach (var bet in result)
+            {
+                if (bet > M)
+                {
+                    return null;
+                }
+            }
+
             return result.ToArray();
         }
     }
