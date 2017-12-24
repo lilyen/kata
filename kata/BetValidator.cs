@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace kata
@@ -10,8 +11,8 @@ namespace kata
     {
         public int[] ValidateBet(int N, int M, string text)
         {
-            var delimiter = new char[]{' ', ',', '/'};
-            var separateResult = text.Split(delimiter);
+            var pattern = @"[, \s /]+";
+            var separateResult = Regex.Split(text, pattern);
             var result = new List<int>();
 
             foreach (var str in separateResult)
