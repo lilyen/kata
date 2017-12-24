@@ -38,6 +38,9 @@ namespace KataTest
         public void BetNoValidator()
         {
             Assert.AreEqual(null, target.ValidateBet(5, 90, "1 2 95 4 10"));
+            Assert.AreEqual(null, target.ValidateBet(5, 90, "1 2 0 4 10"));
+            Assert.AreEqual(null, target.ValidateBet(5, 90, "1 2 -1 4 10"));
+            Assert.AreEqual(null, target.ValidateBet(5, 9, "1 2 5 4 10"));
         }
     }
 }

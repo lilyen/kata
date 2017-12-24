@@ -26,7 +26,7 @@ namespace kata
 
             foreach (var bet in result)
             {
-                if (bet > M)
+                if (bet > M || bet <= 0)
                 {
                     return null;
                 }
