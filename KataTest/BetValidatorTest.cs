@@ -29,6 +29,12 @@ namespace KataTest
         }
 
         [Test]
+        public void SortResult()
+        {
+            Assert.AreEqual(new int[] { 1, 2, 4, 5, 10 }, target.ValidateBet(5, 90, "1 2 10 4 5"));
+        }
+
+        [Test]
         public void BetsAmountNoValidator()
         {
             Assert.AreEqual(null, target.ValidateBet(5, 90, "1 2 3 4"));

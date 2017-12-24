@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace kata
 {
@@ -17,13 +15,14 @@ namespace kata
             {
                 return null;
             }
-            var result = new List<int>();
+
+            var bets = new List<int>();
 
             try
             {
                 foreach (var str in separateResult)
                 {
-                    result.Add(Int32.Parse(str));
+                    bets.Add(Int32.Parse(str));
                 }
             }
             catch (Exception e)
@@ -31,7 +30,7 @@ namespace kata
                 return null;
             }
             
-            foreach (var bet in result)
+            foreach (var bet in bets)
             {
                 if (bet > M || bet <= 0)
                 {
@@ -39,7 +38,16 @@ namespace kata
                 }
             }
 
-            return result.ToArray();
+            var result = bets.Distinct().ToArray();
+
+            Array.Sort(result);
+
+            if (result.Length != N)
+            {
+                return null;
+            }
+
+            return result;
         }
     }
 }
