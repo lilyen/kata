@@ -29,7 +29,7 @@ namespace KataTest
         }
 
         [Test]
-        public void NumberNoValidator()
+        public void BetsAmountNoValidator()
         {
             Assert.AreEqual(null, target.ValidateBet(5, 90, "1 2 3 4"));
         }
