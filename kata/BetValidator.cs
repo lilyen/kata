@@ -10,7 +10,8 @@ namespace kata
     {
         public int[] ValidateBet(int N, int M, string text)
         {
-            var separateResult = text.Split(' ');
+            var delimiter = new char[]{' ', ',', '/'};
+            var separateResult = text.Split(delimiter);
             var result = new List<int>();
 
             foreach (var str in separateResult)

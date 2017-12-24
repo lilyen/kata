@@ -16,11 +16,9 @@ namespace KataTest
         [Test]
         public void SeparatedbySingalCharacter()
         {
-            var expected = new int[] {1, 2, 3, 4, 5};
-
-            var result = target.ValidateBet(5, 90, "1 2 3 4 5");
-
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(new int[] {1, 2, 3, 4, 5}, target.ValidateBet(5, 90, "1 2 3 4 5"));
+            Assert.AreEqual(new int[] { 1, 2, 3, 4, 5 }, target.ValidateBet(5, 90, "1,2,3,4,5"));
+            Assert.AreEqual(new int[] { 1, 2, 3, 4, 5 }, target.ValidateBet(5, 90, "1/2/3/4/5"));
         }
     }
 }
