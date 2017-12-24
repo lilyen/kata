@@ -19,11 +19,18 @@ namespace kata
             }
             var result = new List<int>();
 
-            foreach (var str in separateResult)
+            try
             {
-                result.Add(Int32.Parse(str));
+                foreach (var str in separateResult)
+                {
+                    result.Add(Int32.Parse(str));
+                }
             }
-
+            catch (Exception e)
+            {
+                return null;
+            }
+            
             foreach (var bet in result)
             {
                 if (bet > M || bet <= 0)
