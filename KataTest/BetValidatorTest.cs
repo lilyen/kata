@@ -54,5 +54,12 @@ namespace KataTest
         {
             Assert.AreEqual(null, target.ValidateBet(5, 90, "1 2 3; 4 5"));
         }
+
+        [Test]
+        public void BetHaveSame()
+        {
+            Assert.AreEqual(null, target.ValidateBet(5, 90, "1 2 2 4 10"));
+            Assert.AreEqual(null, target.ValidateBet(5, 90, "1 2 2 3 4 10"));
+        }
     }
 }
