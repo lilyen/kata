@@ -29,13 +29,7 @@ namespace kata
                 return null;
             }
             
-            foreach (var bet in bets)
-            {
-                if (bet > M || bet <= 0)
-                {
-                    return null;
-                }
-            }
+            if (IsBetsOutstripRange(M, bets)) return null;
 
             bets.Sort();
 
@@ -44,9 +38,21 @@ namespace kata
             return bets.ToArray();
         }
 
+        private static bool IsBetsOutstripRange(int max, List<int> bets)
+        {
+            foreach (var bet in bets)
+            {
+                if (bet > max || bet <= 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private static bool IsBetDuplicate(List<int> bets)
         {
-            int originalLength = bets.Count;
+            var originalLength = bets.Count;
             var newLength = bets.Distinct().Count();
 
             return newLength != originalLength;
