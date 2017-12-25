@@ -10,18 +10,13 @@ namespace kata
         public int[] ValidateBet(int N, int M, string text)
         {
             var separateResult = Regex.Split(text, @"[, \s /]+");
-            if (separateResult.Length != N)
-            {
-                return null;
-            }
 
+            if (separateResult.Length != N) return null;
             if (!BetsParseToInt(separateResult, out var bets)) return null;
-
             if (IsBetsOutstripRange(M, bets)) return null;
+            if (IsBetDuplicate(bets)) return null;
 
             bets.Sort();
-
-            if (IsBetDuplicate(bets)) return null;
 
             return bets.ToArray();
         }
