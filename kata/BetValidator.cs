@@ -37,12 +37,11 @@ namespace kata
                 }
             }
 
+            bets.Sort();
+
             if (IsBetDuplicate(bets)) return null;
 
-            var result = bets.ToArray();
-            Array.Sort(result);
-
-            return result;
+            return bets.ToArray();
         }
 
         private static bool IsBetDuplicate(List<int> bets)
