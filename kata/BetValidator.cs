@@ -15,7 +15,20 @@ namespace kata
                 return null;
             }
 
-            var bets = new List<int>();
+            if (!BetsParseToInt(separateResult, out var bets)) return null;
+
+            if (IsBetsOutstripRange(M, bets)) return null;
+
+            bets.Sort();
+
+            if (IsBetDuplicate(bets)) return null;
+
+            return bets.ToArray();
+        }
+
+        private static bool BetsParseToInt(string[] separateResult, out List<int> bets)
+        {
+            bets = new List<int>();
 
             try
             {
@@ -26,16 +39,9 @@ namespace kata
             }
             catch (Exception e)
             {
-                return null;
+                return false;
             }
-            
-            if (IsBetsOutstripRange(M, bets)) return null;
-
-            bets.Sort();
-
-            if (IsBetDuplicate(bets)) return null;
-
-            return bets.ToArray();
+            return true;
         }
 
         private static bool IsBetsOutstripRange(int max, List<int> bets)
