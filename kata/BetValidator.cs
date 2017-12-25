@@ -9,8 +9,7 @@ namespace kata
     {
         public int[] ValidateBet(int N, int M, string text)
         {
-            var pattern = @"[, \s /]+";
-            var separateResult = Regex.Split(text, pattern);
+            var separateResult = Regex.Split(text, @"[, \s /]+");
             if (separateResult.Length != N)
             {
                 return null;
@@ -38,16 +37,20 @@ namespace kata
                 }
             }
 
-            var result = bets.Distinct().ToArray();
+            if (IsBetDuplicate(bets)) return null;
 
+            var result = bets.ToArray();
             Array.Sort(result);
 
-            if (result.Length != N)
-            {
-                return null;
-            }
-
             return result;
+        }
+
+        private static bool IsBetDuplicate(List<int> bets)
+        {
+            int originalLength = bets.Count;
+            var newLength = bets.Distinct().Count();
+
+            return newLength != originalLength;
         }
     }
 }

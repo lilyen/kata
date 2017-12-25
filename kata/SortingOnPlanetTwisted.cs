@@ -9,6 +9,7 @@ namespace kata
 //Sorting on planet Twisted-3-7
     public class SortingOnPlanetTwisted
     {
+        //12,20,72,70,34,46,50,55,62,31" 還沒解完
         public int[] SortTwisted37(int[] array)
         {
             Array.Sort(array);
