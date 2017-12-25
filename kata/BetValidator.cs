@@ -41,14 +41,10 @@ namespace kata
 
         private static bool IsBetsOutstripRange(int max, List<int> bets)
         {
-            foreach (var bet in bets)
-            {
-                if (bet > max || bet <= 0)
-                {
-                    return true;
-                }
-            }
-            return false;
+            var originalLength = bets.Count;
+            var newLength = bets.Count(x => x <= max && x > 0);
+
+            return newLength != originalLength;
         }
 
         private static bool IsBetDuplicate(List<int> bets)
