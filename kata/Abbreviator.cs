@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace kata
+﻿namespace kata
 {
     public class Abbreviator
     {
         public string Abbreviate(string input)
         {
+            if (input.Length >= 4)
+            {
+                return input[0] + (input.Length - 2).ToString() + input[input.Length - 1];
+            }
             return input;
         }
     }

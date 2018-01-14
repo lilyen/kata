@@ -21,13 +21,13 @@ namespace KataTest
             Assert.AreEqual(expected, word);
         }
 
-        [Ignore("next")]
-        public void Abbreviator_Singal_Word()
+        [TestCase("word", "w2d", TestName = "word length = 4")]
+        [TestCase("internationalization", "i18n", TestName = "word length > 4")]
+        public void Abbreviator_Word(string word, string expected)
         {
-            var expected = "i18n";
-            var reault = target.Abbreviate("internationalization");
+            var reault = target.Abbreviate(word);
 
-            Assert.Equals(expected, reault);
+            Assert.AreEqual(expected, reault);
         }
     }
 }
