@@ -13,6 +13,15 @@ namespace KataTest
     {
         Abbreviator target = new Abbreviator();
 
+        [Test]
+        public void Not_Need_Abbreviator_Word()
+        {
+            var word = "are";
+            var expected = "are";
+            var result = target.Abbreviate(word);
+            Assert.AreEqual(expected, word);
+        }
+
         [Ignore("next")]
         public void Abbreviator_Singal_Word()
         {

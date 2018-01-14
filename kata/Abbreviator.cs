@@ -10,7 +10,7 @@ namespace kata
     {
         public string Abbreviate(string input)
         {
-            return "";
+            return input;
         }
     }
 }
