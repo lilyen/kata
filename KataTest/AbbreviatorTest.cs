@@ -18,7 +18,7 @@ namespace KataTest
         public void Not_Need_Abbreviator_Word(string word, string expected)
         {
             var result = target.Abbreviate(word);
-            Assert.AreEqual(expected, word);
+            Assert.AreEqual(expected, result);
         }
 
         [TestCase("word", "w2d", TestName = "word length = 4")]
@@ -29,5 +29,6 @@ namespace KataTest
 
             Assert.AreEqual(expected, reault);
         }
+
     }
 }
