@@ -13,11 +13,10 @@ namespace KataTest
     {
         Abbreviator target = new Abbreviator();
 
-        [Test]
-        public void Not_Need_Abbreviator_Word()
+        [TestCase("are", "are", TestName = "word length = 3")]
+        [TestCase("i", "i", TestName = "word length < 3")]
+        public void Not_Need_Abbreviator_Word(string word, string expected)
         {
-            var word = "are";
-            var expected = "are";
             var result = target.Abbreviate(word);
             Assert.AreEqual(expected, word);
         }
