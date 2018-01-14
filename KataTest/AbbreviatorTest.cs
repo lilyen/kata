@@ -30,5 +30,14 @@ namespace KataTest
             Assert.AreEqual(expected, reault);
         }
 
+        [Test]
+        public void Abbreviator_Sentence()
+        {
+            var sentence = "this is an apple";
+            var expected = "t2s is an a3e";
+            var result = target.Abbreviate(sentence);
+
+            Assert.AreEqual(expected, result);
+        }
     }
 }
