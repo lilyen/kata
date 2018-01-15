@@ -1,23 +1,23 @@
-﻿namespace kata
+﻿using System.Text.RegularExpressions;
+
+namespace kata
 {
     public class Abbreviator
     {
         public string Abbreviate(string input)
         {
-            var words = input.Split(' ');
+            var words = Regex.Split(input, @"[^a-zA-Z]+");
+            var sentence = input;
             if (words.Length > 1)
             {
                 for (var i = 0; i < words.Length; i++)
                 {
-                    words[i] = AbridgeWord(words[i]);
+                    if (words[i] != "")
+                    {
+                        sentence = sentence.Replace(words[i], AbridgeWord(words[i]));
+                    }
                 }
-
-                var temp = words[0];
-                for (var i = 1; i < words.Length; i++)
-                {
-                    temp += " " + words[i];
-                }
-                return temp;
+                return sentence;
             }
             return AbridgeWord(input);
         }
