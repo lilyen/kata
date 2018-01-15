@@ -7,19 +7,26 @@ namespace kata
         public string Abbreviate(string input)
         {
             var words = Regex.Split(input, @"[^a-zA-Z]+");
-            var sentence = input;
             if (words.Length > 1)
             {
-                for (var i = 0; i < words.Length; i++)
-                {
-                    if (words[i] != "")
-                    {
-                        sentence = sentence.Replace(words[i], AbridgeWord(words[i]));
-                    }
-                }
-                return sentence;
+                return AbridgeSentence(input, words);
             }
             return AbridgeWord(input);
+        }
+
+        private string AbridgeSentence(string input, string[] words)
+        {
+            var sentence = input;
+
+            for (var i = 0; i < words.Length; i++)
+            {
+                if (words[i] != "")
+                {
+                    sentence = sentence.Replace(words[i], AbridgeWord(words[i]));
+                }
+            }
+
+            return sentence;
         }
 
         private string AbridgeWord(string word)
