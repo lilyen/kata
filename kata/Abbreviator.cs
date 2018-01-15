@@ -9,11 +9,7 @@
             {
                 for (var i = 0; i < words.Length; i++)
                 {
-                    if (words[i].Length >= 4)
-                    {
-                        words[i] = words[i][0] + (words[i].Length - 2).ToString() + words[i][words[i].Length - 1];
-                    }
-                    words[i] = words[i];
+                    words[i] = AbridgeWord(words[i]);
                 }
 
                 var temp = words[0];
@@ -23,11 +19,16 @@
                 }
                 return temp;
             }
-            if (input.Length >= 4)
+            return AbridgeWord(input);
+        }
+
+        private string AbridgeWord(string word)
+        {
+            if (word.Length >= 4)
             {
-                return input[0] + (input.Length - 2).ToString() + input[input.Length - 1];
+                return word[0] + (word.Length - 2).ToString() + word[word.Length - 1];
             }
-            return input;
+            return word;
         }
     }
 }
