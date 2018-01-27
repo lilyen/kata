@@ -56,6 +56,7 @@
     <Compile Include="AbbreviatorTest.cs" />
     <Compile Include="BetValidatorTest.cs" />
     <Compile Include="FruitMachineTest.cs" />
+    <Compile Include="MagicHatTest.cs" />
     <Compile Include="MorseCodeDecodeTest.cs" />
     <Compile Include="SortingOnPlanetTwisted.cs" />
     <Compile Include="ValidBracesTest.cs" />
