@@ -14,6 +14,15 @@ namespace KataTest
     class MagicHatTest
     {
         [Test]
+        public void NoBall()
+        {
+            MagicHat target = new MagicHat();
+            string result = target.NotSoRandom(0, 0);
+
+            Assert.AreEqual("Unsure", result);
+        }
+
+        [Test]
         public void OneBlackBall()
         {
             MagicHat target = new MagicHat();
