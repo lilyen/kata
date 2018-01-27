@@ -13,31 +13,24 @@ namespace KataTest
     [TestFixture]
     class MagicHatTest
     {
+        MagicHat target = new MagicHat();
+
         [Test]
         public void NoBall()
         {
-            MagicHat target = new MagicHat();
-            string result = target.NotSoRandom(0, 0);
-
-            Assert.AreEqual("Unsure", result);
+            Assert.AreEqual("Unsure", target.NotSoRandom(0, 0));
         }
 
         [Test]
         public void OneBlackBall()
         {
-            MagicHat target = new MagicHat();
-            string result = target.NotSoRandom(1, 0);
-
-            Assert.AreEqual("Black", result);
+            Assert.AreEqual("Black", target.NotSoRandom(1, 0));
         }
 
         [Test]
         public void OneWhiteBall()
         {
-            MagicHat target = new MagicHat();
-            string result = target.NotSoRandom(0, 1);
-
-            Assert.AreEqual("White", result);
+            Assert.AreEqual("White", target.NotSoRandom(0, 1));
         }
     }
 }
