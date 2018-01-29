@@ -5,11 +5,26 @@
     {
         public string NotSoRandom(double black, double white)
         {
-            if (black == 1)
+            var blackMarbles = black;
+            var whiteMarbles = white;
+            if (blackMarbles == 2)
+            {
+                blackMarbles -= 2;
+                whiteMarbles += 1;
+            }
+            else if(whiteMarbles == 2)
+            {
+                whiteMarbles -= 1;
+            } else if (blackMarbles == 1 && whiteMarbles == 1)
+            {
+                whiteMarbles -= 1;
+            }
+            
+            if (blackMarbles == 1 && blackMarbles+ whiteMarbles == 1)
             {
                 return "Black";
             }
-            else if (white == 1)
+            else if (whiteMarbles == 1 && blackMarbles + whiteMarbles == 1)
             {
                 return "White";
             }

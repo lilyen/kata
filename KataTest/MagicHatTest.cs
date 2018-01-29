@@ -32,5 +32,13 @@ namespace KataTest
         {
             Assert.AreEqual("White", target.NotSoRandom(0, 1));
         }
+
+        [TestCase("White", 2, 0, TestName = "two ball same, all black")]
+        [TestCase("White", 0, 2, TestName = "two ball same, all white")]
+        [TestCase("Black", 1, 1, TestName = "two ball different")]
+        public void TwoBall(string expected, double black, double white)
+        {
+            Assert.AreEqual(expected, target.NotSoRandom(black, white));
+        }
     }
 }
