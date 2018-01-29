@@ -10,16 +10,20 @@
         {
             _blackMarbles = black;
             _whiteMarbles = white;
-            if (_blackMarbles == 2)
+            while (_blackMarbles + _whiteMarbles > 1)
             {
-                RemoveTwoBlackMarbles();
-            }
-            else if(_whiteMarbles == 2)
-            {
-                RemoveTwoWhiteMarbles();
-            } else if (_blackMarbles == 1 && _whiteMarbles == 1)
-            {
-                RemoveTwoDifMarbles();
+                if (_blackMarbles >= 2)
+                {
+                    RemoveTwoBlackMarbles();
+                }
+                else if (_whiteMarbles >= 2)
+                {
+                    RemoveTwoWhiteMarbles();
+                }
+                else if (_blackMarbles >= 1 && _whiteMarbles >= 1)
+                {
+                    RemoveTwoDifMarbles();
+                }
             }
             
             if (_blackMarbles == 1 && _blackMarbles+ _whiteMarbles == 1)
