@@ -16,27 +16,27 @@ namespace KataTest
         MagicHat target = new MagicHat();
 
         [Test]
-        public void NoBall()
+        public void NoMarble()
         {
             Assert.AreEqual("Unsure", target.NotSoRandom(0, 0));
         }
 
         [Test]
-        public void OneBlackBall()
+        public void OneBlackMarble()
         {
             Assert.AreEqual("Black", target.NotSoRandom(1, 0));
         }
 
         [Test]
-        public void OneWhiteBall()
+        public void OneWhiteMarble()
         {
             Assert.AreEqual("White", target.NotSoRandom(0, 1));
         }
 
-        [TestCase("White", 2, 0, TestName = "two ball same, all black")]
-        [TestCase("White", 0, 2, TestName = "two ball same, all white")]
-        [TestCase("Black", 1, 1, TestName = "two ball different")]
-        public void TwoBall(string expected, double black, double white)
+        [TestCase("White", 2, 0, TestName = "two marbles same, all black")]
+        [TestCase("White", 0, 2, TestName = "two marbles same, all white")]
+        [TestCase("Black", 1, 1, TestName = "two marbles different")]
+        public void TwoMarble(string expected, double black, double white)
         {
             Assert.AreEqual(expected, target.NotSoRandom(black, white));
         }
