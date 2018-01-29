@@ -26,6 +26,11 @@
                 }
             }
             
+            return ReturnResultMsg();
+        }
+
+        private string ReturnResultMsg()
+        {
             if (_blackMarbles == 1)
             {
                 return "Black";
