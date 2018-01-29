@@ -26,11 +26,11 @@
                 }
             }
             
-            if (_blackMarbles == 1 && _blackMarbles+ _whiteMarbles == 1)
+            if (_blackMarbles == 1)
             {
                 return "Black";
             }
-            else if (_whiteMarbles == 1 && _blackMarbles + _whiteMarbles == 1)
+            else if (_whiteMarbles == 1)
             {
                 return "White";
             }
