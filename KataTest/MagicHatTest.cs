@@ -43,6 +43,8 @@ namespace KataTest
 
         [TestCase("White", 0, 3, TestName = "three marbles same, all white")]
         [TestCase("Black", 3, 0, TestName = "three marbles same, all black")]
+        [TestCase("Black", 1, 2, TestName = "two marbles different, white more")]
+        [TestCase("White", 2, 1, TestName = "two marbles different, black more")]
         public void ThreeMarble(string expected, double black, double white)
         {
             Assert.AreEqual(expected, target.NotSoRandom(black, white));
