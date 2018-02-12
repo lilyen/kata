@@ -12,21 +12,26 @@
             _whiteMarbles = white;
             while (_blackMarbles + _whiteMarbles > 1)
             {
-                if (_blackMarbles >= 2)
-                {
-                    RemoveTwoBlackMarbles();
-                }
-                else if (_whiteMarbles >= 2)
-                {
-                    RemoveTwoWhiteMarbles();
-                }
-                else if (_blackMarbles >= 1 && _whiteMarbles >= 1)
-                {
-                    RemoveTwoDifMarbles();
-                }
+                RemoveMarbles();
             }
             
             return ReturnResultMsg();
+        }
+
+        private void RemoveMarbles()
+        {
+            if (_blackMarbles >= 2)
+            {
+                RemoveTwoBlackMarbles();
+            }
+            else if (_whiteMarbles >= 2)
+            {
+                RemoveTwoWhiteMarbles();
+            }
+            else if (_blackMarbles >= 1 && _whiteMarbles >= 1)
+            {
+                RemoveTwoDifMarbles();
+            }
         }
 
         private string ReturnResultMsg()
@@ -45,13 +50,15 @@
 
         private void RemoveTwoBlackMarbles()
         {
-            _blackMarbles -= 2;
-            _whiteMarbles += 1;
+            var tmpTime = (int)(_blackMarbles / 2);
+            _blackMarbles -= (2 * tmpTime);
+            _whiteMarbles += (1 * tmpTime);
         }
 
         private void RemoveTwoWhiteMarbles()
         {
-            _whiteMarbles -= 1;
+            var tmpTime = (int)(_whiteMarbles / 2);
+            _whiteMarbles -= 1 * tmpTime;
         }
 
         private void RemoveTwoDifMarbles()
