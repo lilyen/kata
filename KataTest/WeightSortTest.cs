@@ -23,21 +23,21 @@ namespace KataTest
         [Test]
         public void RemoveWhiteList()
         {
-            var result = _weightSort.orderWeight("123   123");
+            var result = _weightSort.orderWeight2("123   123");
             Assert.AreEqual("123 123",result);
         }
 
         [Test]
         public void FirstUseSumCompare()
         {
-            var result = _weightSort.orderWeight("99 100");
+            var result = _weightSort.orderWeight2("99 100");
             Assert.AreEqual("100 99", result);
         }
 
         [Test]
         public void SumSamUseStringCompare()
         {
-            var result = _weightSort.orderWeight("90 180");
+            var result = _weightSort.orderWeight2("90 180");
             Assert.AreEqual("180 90", result);
         }
     }

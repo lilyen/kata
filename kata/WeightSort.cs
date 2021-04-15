@@ -13,6 +13,15 @@ namespace kata
             Array.Sort(weights,new WeightCompare());
             return string.Join(" ", weights);
         }
+
+        public string orderWeight2(string strng)
+        {
+            var weights = Regex.Split(strng, "\\s+");
+            var results = weights
+                .OrderBy(x => x.ToCharArray().Sum(y => int.Parse(y.ToString())))
+                .ThenBy(x => x);
+            return string.Join(" ", results);
+        }
     }
 
     public class WeightCompare : IComparer<string>
