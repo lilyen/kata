@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace kata
 {
+    //https://www.codewars.com/kata/55c6126177c9441a570000cc/solutions/csharp
     public class WeightSort
     {
         public string orderWeight(string strng)
