@@ -61,6 +61,7 @@
     <Compile Include="FruitMachineTest.cs" />
     <Compile Include="MagicHatTest.cs" />
     <Compile Include="MorseCodeDecodeTest.cs" />
+    <Compile Include="SnailSolutionTest.cs" />
     <Compile Include="SortingOnPlanetTwisted.cs" />
     <Compile Include="ValidBracesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
